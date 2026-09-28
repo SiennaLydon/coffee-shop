@@ -14,6 +14,7 @@ public class Customer : MonoBehaviour
 
     void Start()
     {
+        Debug.LogError("No PlayerController found in parent!");
         RequestDrinkType(drinkType);
     }
 
