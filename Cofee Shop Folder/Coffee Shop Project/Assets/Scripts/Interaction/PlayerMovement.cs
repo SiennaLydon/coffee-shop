@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Controls")]
     [SerializeField]
 
-     private CharacterController controller;
+    private CharacterController controller;
 
     void Start()
     {
@@ -13,3 +13,5 @@ public class PlayerMovement : MonoBehaviour
     }
 
 }
+
+
