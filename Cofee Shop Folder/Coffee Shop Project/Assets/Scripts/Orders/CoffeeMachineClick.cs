@@ -5,8 +5,17 @@ public class CoffeeMachineClick : MonoBehaviour
     private int seconds = 9;
     void OnMouseDown()
     {
-         seconds = 9;
-         InvokeRepeating("BrewingCoffee", 1, 1);
+         if (NPCOrderRan.menuItem == "an espresso.")
+         {
+             seconds = 9;
+             InvokeRepeating("BrewingCoffee", 1, 1);
+             NPCOrderRan.orderDone = true;
+         }
+
+         else
+         {
+             Debug.Log("This is not a coffee order.");
+         }
 
     }
     void BrewingCoffee()
