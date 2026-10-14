@@ -22,7 +22,7 @@ public class CoffeeMachineClick : MonoBehaviour
                  break;
 
              default:
-                Debug.Log("||This is not a coffee order.||");
+                Debug.Log("<color=green>||This is not a coffee order.||<color=grey>");
                 break;
          }
 
@@ -34,12 +34,12 @@ public class CoffeeMachineClick : MonoBehaviour
     void BrewingCoffee()
     {
         seconds --;
-        Debug.Log("||Brewing coffee.... " + seconds + " seconds remaining.||");
+        Debug.Log("<color=green>||Brewing coffee.... " + seconds + " seconds remaining.||<color=grey>");
         
         if (seconds <= 1)
         {
-          Debug.Log("||Coffee is ready.||");
-          Debug.Log("||Click on the customer to give them their order.||");
+          Debug.Log("<color=green>||Coffee is ready.||<color=grey>");
+          Debug.Log("<color=green>||Click on the customer to give them their order.||<color=grey>");
 
 
           CancelInvoke("BrewingCoffee");
