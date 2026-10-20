@@ -1,49 +1,29 @@
-// using UnityEngine;
+using UnityEngine;
 
-// public class MilkshakeMake : MonoBehaviour
-// {
-//     private int seconds = 9;
+public class MilkshakeMake : MonoBehaviour
+ {
    
-//     public static bool clickMax = false;
+     public static bool clickMax = false;
 
-//     void OnMouseDown()
-//     {
-//         if (clickMax == false)
-//         {
-            
-//          switch (NPCOrderRan.menuItem)
-//          {
-//              case "a milkshake.":
-//                 InvokeRepeating("Making Milkshake", 1, 1);
-//                  NPCOrderRan.orderDone = true;
-//                  clickMax = true;
-//                  break;
+     void OnMouseDown()
+     {
+        switch (clickMax)
+        {
 
-//              default:
-//                 Debug.Log("<color=green>||This is not a milkshake order.||<color=grey>");
-//                 break;
-//          }
+            case false:
+              Debug.Log("<color=green>||Milkshake in hand||<color=grey>");
+              Debug.Log("<color=green>||Click on the customer to give them their order.||<color=grey>");
+              clickMax = true;
+              NPCOrderRan.orderDone = true;
+              break;
 
-//         }
+            default:
+             break;
+                
 
-          
-//     }
-
-//     void MakingMilkshake()
-//     {
-//         seconds --;
-//         Debug.Log("<color=green>||Making milkshake.... " + seconds + " seconds remaining.||<color=grey>");
+        }
         
-//         if (seconds <= 1)
-//         {
-//           Debug.Log("<color=green>||Milkshake is ready.||<color=grey>");
-//           Debug.Log("<color=green>||Click on the customer to give them their order.||<color=grey>");
+     }
 
-
-//           CancelInvoke("MakingMilkshake");
-//         }
-
-//      }
-
-// }
+ }
 
