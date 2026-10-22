@@ -5,12 +5,12 @@ public class CameraController : MonoBehaviour
     public float sensitivity = 2f;
     private float xRotation = 0f;
 
-    void Start()
+    void Awake()
     {
         //Locks the cursor
         Cursor.lockState = CursorLockMode.Locked;
 
-        Cursor.lockState = CursorLockMode.Confined;
+        // Cursor.lockState = CursorLockMode.Confined;
 
         //Hides the cursor
         Cursor.visible = false;

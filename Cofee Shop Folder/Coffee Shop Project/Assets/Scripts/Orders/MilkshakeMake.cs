@@ -7,11 +7,13 @@ public class MilkshakeMake : MonoBehaviour
 
      void OnMouseDown()
      {
-        switch (clickMax)
+        
+        if (clickMax == false)
         {
-
-            case false:
-              Debug.Log("<color=green>||Milkshake in hand||<color=grey>");
+          switch (NPCOrderRan.menuItem)
+           {
+             case "a milkshake.":
+             Debug.Log("<color=green>||Milkshake in hand||<color=grey>");
               Debug.Log("<color=green>||Click on the customer to give them their order.||<color=grey>");
               clickMax = true;
               NPCOrderRan.orderDone = true;
@@ -19,11 +21,12 @@ public class MilkshakeMake : MonoBehaviour
 
             default:
              break;
-                
+
+             
+           }
 
         }
-        
      }
-
- }
+        
+}
 

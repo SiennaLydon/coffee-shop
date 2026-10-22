@@ -84,7 +84,7 @@ public class NPCOrderRan : MonoBehaviour
 
         else
         {
-            Debug.Log("<color=white>Customer: I have already given my order. <color=grey>");
+            Debug.Log("<color=white>Customer: I have already given my order, I wanted" + menuItem + ". <color=grey>");
         }
 
 
