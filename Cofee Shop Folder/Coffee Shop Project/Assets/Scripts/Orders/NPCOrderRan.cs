@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NPCOrderRan : MonoBehaviour
 {
@@ -7,8 +8,10 @@ public class NPCOrderRan : MonoBehaviour
     public static bool givenOrder = true;
     public static bool orderDone = false;
     public static int customersServed = 0;
+    public static bool clickMax = false;
 
-    private string[] Menu = {"a donut.", "an espresso.", "a latte.", "a mocha.", "a hot chocolate.", "a muffin.", "a milkshake.", "a packet of crisps.", "a toastie.", "a cookie."};
+
+    private string[] Menu = {"an espresso.", "a latte.", "a mocha.",  "a milkshake.", "a packet of crisps."};
 
     void Start()
     {
@@ -33,10 +36,6 @@ public class NPCOrderRan : MonoBehaviour
                     Debug.Log("<color=green>||Use the coffee machine to make " + menuItem + "||<color=grey>");
                     break;
 
-                case "a hot chocolate.":
-                    Debug.Log("<color=green>||Use the hot chocolate machine to make a hot chocolate.||<color=grey>");
-                    break;
-
                 case "a donut.":
                     Debug.Log("<color=green>||Grab a donut from the display and give it to the customer.||<color=grey>");
                     break;
@@ -50,7 +49,7 @@ public class NPCOrderRan : MonoBehaviour
                     break;
 
                 case "a packet of crisps.":
-                    Debug.Log("<color=green>||Grab some crisps from the display and give them to the customer.||<color=grey>");
+                    Debug.Log("<color=green>||Grab some crisps from the crate and give them to the customer.||<color=grey>");
                     break;
 
                 case "a toastie.":
@@ -69,24 +68,38 @@ public class NPCOrderRan : MonoBehaviour
             Debug.Log("<color=white>Customer: Thank you for my order.<color=grey>");
             customersServed ++;
             givenOrder = false;
-            CoffeeMachineClick.clickMax = false;
+            clickMax = false;
             
 
             if (customersServed == 1)
             {
                 Debug.Log("<color=green>||Well done! You have served " + customersServed + " customer.||<color=grey>");
+                Destroy(gameObject);
+                LogicController.customerSpawned = false;
+                givenOrder = true;
+                orderDone = false;
+
             }
             else
-            {    Debug.Log("<color=green>||Well done! You have served " + customersServed + " customers.||<color=grey>");
-                 
-            }   //wait 3 seconds, then delete old customer and bring in new customer
+            {   
+                 Debug.Log("<color=green>||Well done! You have served " + customersServed + " customers.||<color=grey>");
+                 Destroy(gameObject);
+                 LogicController.customerSpawned = false;
+                 givenOrder = true;
+                 orderDone = false;
+                
+                
+            }  
+
+            
         }
 
         else
         {
-            Debug.Log("<color=white>Customer: I have already given my order, I wanted" + menuItem + ". <color=grey>");
+            Debug.Log("<color=white>Customer: I have already given my order, I wanted " + menuItem + ". <color=grey>");
         }
 
+        
 
 
         //DaySwapandSum.daySwap();

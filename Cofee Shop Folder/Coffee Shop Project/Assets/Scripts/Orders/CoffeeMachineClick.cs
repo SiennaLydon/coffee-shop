@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class CoffeeMachineClick : MonoBehaviour
 {
-    private int seconds = 9;
-   
-    public static bool clickMax = false;
+    private int seconds = 6;
 
     void OnMouseDown()
     {
-        if (clickMax == false)
+        
+        if (NPCOrderRan.clickMax == false)
         {
             
          switch (NPCOrderRan.menuItem)
@@ -16,10 +15,11 @@ public class CoffeeMachineClick : MonoBehaviour
              case "an espresso.":
              case "a latte.":
              case "a mocha.":
+                seconds = 6;
                 InvokeRepeating("BrewingCoffee", 1, 1);
-                 NPCOrderRan.orderDone = true;
-                 clickMax = true;
-                 break;
+                NPCOrderRan.orderDone = true;
+                NPCOrderRan.clickMax = true;
+                break;
 
              default:
                 Debug.Log("<color=green>||This is not a coffee order.||<color=grey>");
